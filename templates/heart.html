@@ -1,0 +1,116 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="col-md-10 col-lg-8"> <!-- Adjusted width -->
+        <div class="card shadow-lg border-light p-4"> <!-- Larger card -->
+            <div class="card-body">
+                <h3 class="text-center text-primary mb-4">Heart Disease Predictor</h3>
+
+                <form class="form-horizontal" action="{{ url_for('predictPage') }}" method="POST">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Age</label>
+                                <input class="form-control" type="text" name="age" placeholder="Enter age" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Sex (1=Male, 0=Female)</label>
+                                <input class="form-control" type="text" name="sex" placeholder="Enter sex" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Chest Pain Type</label>
+                                <input class="form-control" type="text" name="cp" placeholder="Enter chest pain type" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Resting Blood Pressure (mm Hg)</label>
+                                <input class="form-control" type="text" name="trestbps" placeholder="Enter resting blood pressure" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Serum Cholesterol (mg/dl)</label>
+                                <input class="form-control" type="text" name="chol" placeholder="Enter serum cholesterol" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Fasting Blood Sugar (1=True, 0=False)</label>
+                                <input class="form-control" type="text" name="fbs" placeholder="Enter fasting blood sugar" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Resting Electrocardiographic Results</label>
+                                <input class="form-control" type="text" name="restecg" placeholder="Enter resting ECG results" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Maximum Heart Rate Achieved</label>
+                                <input class="form-control" type="text" name="thalach" placeholder="Enter maximum heart rate" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Exercise Induced Angina (1=Yes, 0=No)</label>
+                                <input class="form-control" type="text" name="exang" placeholder="Enter exercise induced angina" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>ST Depression Induced by Exercise</label>
+                                <input class="form-control" type="text" name="oldpeak" placeholder="Enter ST depression" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Slope of Peak Exercise ST Segment</label>
+                                <input class="form-control" type="text" name="slope" placeholder="Enter slope of ST segment" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Number of Major Vessels (0-3)</label>
+                                <input class="form-control" type="text" name="ca" placeholder="Enter number of major vessels" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Thalassemia (3=Normal, 6=Fixed Defect, 7=Reversible Defect)</label>
+                                <input class="form-control" type="text" name="thal" placeholder="Enter thalassemia" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="row justify-content-center mt-3">
+                        <div class="col-6 text-center">
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" value="Predict">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

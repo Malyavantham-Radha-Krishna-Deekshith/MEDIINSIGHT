@@ -1,0 +1,76 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% if message %}
+    <div class="alert alert-danger text-center">{{ message }}</div>
+{% endif %}
+
+<div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-lg border-dark p-4">
+            <div class="card-body">
+                <h2 class="text-center text-primary mb-4">Diabetes Predictor</h2>
+
+                <form class="form-horizontal" action="{{ url_for('predictPage') }}" method="POST">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control border-dark" type="text" name="pregnancies" placeholder="Number of Pregnancies e.g. 0">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control border-dark" type="text" name="glucose" placeholder="Glucose (mg/dL) e.g. 80">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control border-dark" type="text" name="bloodpressure" placeholder="Blood Pressure (mmHg) e.g. 80">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control border-dark" type="text" name="skinthickness" placeholder="Skin Thickness (mm) e.g. 20">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control border-dark" type="text" name="insulin" placeholder="Insulin Level (IU/mL) e.g. 80">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control border-dark" type="text" name="bmi" placeholder="Body Mass Index (kg/m²) e.g. 23.1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control border-dark" type="text" name="dpf" placeholder="Diabetes Pedigree Function e.g. 0.52">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control border-dark" type="text" name="age" placeholder="Age (years) e.g. 34">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <input type="submit" class="btn btn-primary btn-lg btn-block" value="Predict">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

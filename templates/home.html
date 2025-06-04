@@ -1,0 +1,115 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% if message %}
+  <div class="alert alert-danger text-center">{{ message }}</div>
+{% endif %}
+
+<div class="container my-5" style="max-width: 1140px;">
+  <div class="text-center bg-light p-5 rounded shadow-sm">
+    <h1 class="display-4 text-primary fw-bold">Welcome to MediInsight</h1>
+    <p class="lead text-secondary mt-3">
+      Your trusted companion for health diagnosis using advanced Machine Learning and Deep Learning models.
+    </p>
+    <hr class="my-4">
+    <p class="text-muted">Get predictions for a range of diseases with high accuracy - empowering healthcare with technology.</p>
+    <a class="btn btn-primary btn-lg mt-2 px-4" href="{{ url_for('diabetesPage') }}">Get Started</a>
+  </div>
+
+  <!-- Daily Tip -->
+  <div class="alert alert-info mt-4 shadow-sm">
+    <strong>Daily Health Tip:</strong> {{ tip }}
+  </div>
+
+  <!-- Section: Health Insights -->
+  <div class="mt-5">
+    <h3 class="text-secondary mb-4 fw-semibold">Explore Our Health Insights</h3>
+    <div class="row">
+      {% set diseases = [
+        ('Diabetes', 'diabetesPage', 'Diabetes occurs when blood glucose levels are too high. Symptoms include frequent urination, excessive thirst, fatigue, and blurry vision.'),
+        ('Breast Cancer', 'cancerPage', 'Breast cancer forms in breast cells. Symptoms include lumps, changes in size or shape, and skin dimpling.'),
+        ('Kidney Disease', 'kidneyPage', 'Kidney disease involves a gradual loss of kidney function, leading to fatigue, nausea, and muscle cramps.'),
+        ('Liver Disease', 'liverPage', 'Symptoms include jaundice, swelling in the abdomen, and easy bruising. Early diagnosis is essential.'),
+        ('Malaria', 'malariaPage', 'A mosquito-borne infectious disease causing fever, chills, and vomiting. Severe cases can lead to complications.'),
+        ('Pneumonia', 'pneumoniaPage', 'Pneumonia inflames the air sacs in the lungs, leading to cough, fever, and breathing difficulty.')
+      ] %}
+
+      {% for name, url, desc in diseases %}
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-primary fw-bold">{{ name }}</h5>
+            <p class="card-text text-secondary flex-grow-1">{{ desc }}</p>
+            <a href="{{ url_for(url) }}" class="btn btn-outline-primary mt-3">Predict</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- More Diseases (Initially Hidden) -->
+    <div id="moreDiseases" class="row d-none">
+      <div class="col-md-6 col-lg-4 mb-4 mx-auto">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-primary fw-bold">Heart Disease</h5>
+            <p class="card-text text-secondary flex-grow-1">
+              Heart disease refers to a variety of heart conditions, including coronary artery disease, heart failure, and arrhythmias.
+            </p>
+            <a href="{{ url_for('heartPage') }}" class="btn btn-outline-primary mt-3">Predict</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Show More Button -->
+    <div class="text-center mt-4">
+      <button id="moreDiseasesBtn" class="btn btn-primary px-4" onclick="toggleSection('moreDiseases', 'moreDiseasesBtn')">Show More</button>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Styles -->
+<style>
+  #bot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+
+  #bot-container button {
+    background: #007bff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+  }
+
+  #bot-container button:hover {
+    transform: scale(1.1);
+  }
+</style>
+
+<!-- Script for Show More functionality -->
+<script>
+  function toggleSection(sectionId, buttonId) {
+    const section = document.getElementById(sectionId);
+    const button = document.getElementById(buttonId);
+
+    if (section.classList.contains('d-none')) {
+      section.classList.remove('d-none');
+      button.textContent = 'Show Less';
+    } else {
+      section.classList.add('d-none');
+      button.textContent = 'Show More';
+    }
+  }
+</script>
+
+{% endblock %}

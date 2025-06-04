@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(500)
+                    .height(500);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+{% if message %}
+    <div class="alert alert-danger">{{ message }}</div>
+{% endif %}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 60px);">
+    <div class="card shadow-lg border-light" style="width: 100%; max-width: 900px; padding: 20px;">
+        <div class="card-body">
+            <center><h1 class="text-primary mb-4">Pneumonia Predictor</h1></center>
+            <center><h3>Please upload the X-Ray of the Person</h3></center>
+            <form class="form-horizontal" action="{{ url_for('pneumoniapredictPage') }}" method="POST" enctype="multipart/form-data">
+                <div class="form-group text-center">
+                    <input onchange="readURL(this);" type="file" name="image" class="form-control" style="display: inline-block; width: auto;">
+                    <br><br>
+                    <img class="img-fluid" id="blah" src="#" alt="UPLOADED IMAGE WILL APPEAR HERE" style="max-width: 100%; height: auto;">
+                    <br><br>
+                    <input class="btn btn-primary" type="submit" value="Predict">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

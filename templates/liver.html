@@ -1,0 +1,75 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="row" style="height: 100vh;">
+    <div class="col-md-12 d-flex justify-content-center align-items-center">
+        <div class="card card-body" style="border: 1px solid black; width: 85%; max-width: 700px;">
+            <center><h1>Liver Disease Predictor</h1></center>
+            <form class="form-horizontal" action="{{ url_for('predictPage') }}" method="POST">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Age" placeholder="Age">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Total_Bilirubin" placeholder="Total Bilirubin">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Direct_Bilirubin" placeholder="Direct Bilirubin">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Alkaline_Phosphotase" placeholder="Alkaline Phosphotase">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Alamine_Aminotransferase" placeholder="Alamine Aminotransferase">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Aspartate_Aminotransferase" placeholder="Aspartate Aminotransferase">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Total_Protiens" placeholder="Total Protiens">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Albumin" placeholder="Albumin">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Albumin_and_Globulin_Ratio" placeholder="Albumin and Globulin Ratio">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Gender_Male" placeholder="Gender(Male: 1, Female: 0)">
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Predict">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

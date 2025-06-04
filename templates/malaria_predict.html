@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container-fluid d-flex flex-column min-vh-100">
+    <div class="row justify-content-center flex-grow-1">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-light">
+                <div class="card-body">
+                    <h3 class="text-center text-primary mb-4">Malaria Cell Infection Prediction</h3>
+
+                    {% if pred == 1 %}
+                    <div class="alert alert-danger text-center">
+                        <h4 class="alert-heading">Diagnosis: Infected Malarial Cell</h4>
+                        <p>This cell is predicted to be infected with malaria. We recommend consulting a healthcare provider for diagnosis and treatment.</p>
+                        <hr>
+                        <h5>Precautions:</h5>
+                        <ul>
+                            <li>Use insect repellents and mosquito nets to avoid mosquito bites.</li>
+                            <li>Avoid traveling to malaria-endemic areas if not necessary.</li>
+                            <li>Keep your environment free of standing water where mosquitoes breed.</li>
+                        </ul>
+                        <h5>Medications:</h5>
+                        <ul>
+                            <li>Chloroquine (for uncomplicated malaria).</li>
+                            <li>Artemisinin-based combination therapies (for severe cases).</li>
+                            <li>Always consult your healthcare provider for proper medication.</li>
+                        </ul>
+                    </div>
+                    {% else %}
+                    <div class="alert alert-success text-center">
+                        <h4 class="alert-heading">Diagnosis: Not Infected</h4>
+                        <p>This cell is predicted to be healthy, and no malarial infection is detected. Continue maintaining your health and preventing mosquito bites.</p>
+                        <hr>
+                        <p class="mb-0">Regular monitoring and preventive measures can help reduce the risk of future infections.</p>
+                    </div>
+                    {% endif %}
+
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-12 text-center">
+                            <a href="{{ url_for('home') }}" class="btn btn-primary btn-lg">Back to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+{% endblock %}

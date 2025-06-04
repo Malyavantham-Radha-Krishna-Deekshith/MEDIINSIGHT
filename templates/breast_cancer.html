@@ -1,0 +1,129 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="col-md-10 col-lg-8"> <!-- Adjusted width -->
+        <div class="card shadow-lg border-light p-4"> <!-- Larger card -->
+            <div class="card-body">
+                <h3 class="text-center text-primary mb-4">Breast Cancer Predictor</h3>
+
+                <form class="form-horizontal" action="{{ url_for('predictPage') }}" method="POST">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Radius Mean</label>
+                                <input class="form-control" type="text" name="radius_mean" placeholder="Enter radius mean">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Texture Mean</label>
+                                <input class="form-control" type="text" name="texture_mean" placeholder="Enter texture mean">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Perimeter Mean</label>
+                                <input class="form-control" type="text" name="perimeter_mean" placeholder="Enter perimeter mean">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Area Mean</label>
+                                <input class="form-control" type="text" name="area_mean" placeholder="Enter area mean">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Smoothness Mean</label>
+                                <input class="form-control" type="text" name="smoothness_mean" placeholder="Enter smoothness mean">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Compactness Mean</label>
+                                <input class="form-control" type="text" name="compactness_mean" placeholder="Enter compactness mean">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Concavity Mean</label>
+                                <input class="form-control" type="text" name="concavity_mean" placeholder="Enter concavity mean">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Concave Points Mean</label>
+                                <input class="form-control" type="text" name="concave_points_mean" placeholder="Enter concave points mean">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Symmetry Mean</label>
+                                <input class="form-control" type="text" name="symmetry_mean" placeholder="Enter symmetry mean">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Features -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Radius SE</label>
+                                <input class="form-control" type="text" name="radius_se" placeholder="Enter radius SE">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Perimeter SE</label>
+                                <input class="form-control" type="text" name="perimeter_se" placeholder="Enter perimeter SE">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Area SE</label>
+                                <input class="form-control" type="text" name="area_se" placeholder="Enter area SE">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Compactness SE</label>
+                                <input class="form-control" type="text" name="compactness_se" placeholder="Enter compactness SE">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Concavity SE</label>
+                                <input class="form-control" type="text" name="concavity_se" placeholder="Enter concavity SE">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Concave Points SE</label>
+                                <input class="form-control" type="text" name="concave_points_se" placeholder="Enter concave points SE">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="row justify-content-center mt-3">
+                        <div class="col-6 text-center">
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" value="Predict">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

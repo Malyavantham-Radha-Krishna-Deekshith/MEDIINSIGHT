@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="og:title" content="MEDI_INSIGHT">
+  <meta name="author" content="RK MALYAVANTHAM">
+  <meta name="og:image" content="static/Main Logo.png">
+  <meta name="Keywords" content="Flask, Machine Learning, Deep Learning, Artificial Intelligence, AI, ML,DL, Web Development">
+  <meta name="description" content="A Machine Learning and Deep Learning based webapp for Multiple Disease Prediction.">
+  <title>MEDI_INSIGHT</title>
+  <link rel="icon" href="{{ url_for('static', filename = 'Main Logo.png') }}" type="">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f9fbfd;
+      color: #333;
+    }
+
+    /* Flexbox wrapper for sticky footer */
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1 0 auto; /* take remaining height */
+      padding-top: 65px;
+      padding-bottom: 20px;
+    }
+
+    footer {
+      flex-shrink: 0;
+      height: auto;
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    nav.navbar {
+      background-color: #2c3e50 !important;
+      padding: 5px 10px;
+    }
+
+    nav.navbar a.nav-link {
+      color: #f9fbfd !important;
+    }
+
+    nav.navbar a.nav-link:hover {
+      color: #a9d6e5 !important;
+    }
+
+    footer a {
+      color: #a9d6e5;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+      width: auto;
+    }
+
+    @media (max-width: 768px) {
+      footer ul {
+        padding-left: 0;
+      }
+      footer ul li {
+        display: block;
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a href="{{ url_for('home') }}" class="navbar-brand">
+      <img src="{{ url_for('static', filename='Main Logo.png') }}" alt="MediInsight Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="diseaseDropdown" role="button" data-toggle="dropdown">Disease Prediction</a>
+          <div class="dropdown-menu" aria-labelledby="diseaseDropdown">
+            <a class="dropdown-item" href="{{ url_for('diabetesPage') }}">Diabetes</a>
+            <a class="dropdown-item" href="{{ url_for('cancerPage') }}">Breast Cancer</a>
+            <a class="dropdown-item" href="{{ url_for('kidneyPage') }}">Kidney</a>
+            <a class="dropdown-item" href="{{ url_for('liverPage') }}">Liver</a>
+            <a class="dropdown-item" href="{{ url_for('malariaPage') }}">Malaria</a>
+            <a class="dropdown-item" href="{{ url_for('pneumoniaPage') }}">Pneumonia</a>
+            <a class="dropdown-item" href="{{ url_for('heartPage') }}">Heart Disease</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container-fluid">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <ul class="list-inline mb-2">
+      <li class="list-inline-item">
+        <a href="https://www.linkedin.com/in/radha-krishna-malyavantham/" target="_blank"><span class="fa fa-linkedin"></span> LinkedIn</a>
+      </li>
+      <li class="list-inline-item">
+        <a href="https://github.com/deek-45" target="_blank"><span class="fa fa-github"></span> GitHub</a>
+      </li>
+    </ul>
+    <p>Made with <span style="color: red;">&hearts;</span> by RK MALYAVANTHAM</p>
+  </footer>
+
+  <!-- JS Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

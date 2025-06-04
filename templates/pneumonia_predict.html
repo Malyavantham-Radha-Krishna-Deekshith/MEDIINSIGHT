@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container-fluid d-flex flex-column min-vh-100">
+    <div class="row justify-content-center flex-grow-1">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-light">
+                <div class="card-body">
+                    <h3 class="text-center text-primary mb-4">Pneumonia Prediction</h3>
+
+                    {% if pred == 1 %}
+                    <div class="alert alert-danger text-center">
+                        <h4 class="alert-heading">Diagnosis: Pneumonia Detected</h4>
+                        <p>This X-Ray shows signs of Pneumonia. We highly recommend consulting a healthcare provider for immediate treatment.</p>
+                        <hr>
+                        <h5>Precautions:</h5>
+                        <ul>
+                            <li>Get plenty of rest and drink fluids to stay hydrated.</li>
+                            <li>Follow your doctor’s advice and take prescribed antibiotics.</li>
+                            <li>Use a humidifier to ease breathing and keep the airways moist.</li>
+                            <li>Avoid smoking and exposure to smoke.</li>
+                        </ul>
+                        <h5>Medications:</h5>
+                        <ul>
+                            <li>Antibiotics for bacterial pneumonia.</li>
+                            <li>Oxygen therapy may be required for severe cases.</li>
+                        </ul>
+                    </div>
+                    {% else %}
+                    <div class="alert alert-success text-center">
+                        <h4 class="alert-heading">Diagnosis: No Pneumonia Detected</h4>
+                        <p>This X-Ray does not show any signs of Pneumonia. Continue to monitor your health and consult your healthcare provider for routine checkups.</p>
+                        <hr>
+                        <p class="mb-0">It's always good to follow general respiratory health precautions, especially in flu seasons.</p>
+                    </div>
+                    {% endif %}
+
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-12 text-center">
+                            <a href="{{ url_for('home') }}" class="btn btn-primary btn-lg">Back to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+{% endblock %}
