@@ -49,4 +49,4 @@ Mediinsight is a Flask-based web application that leverages machine learning and
 
 ---
 
-**Empower your healthcare predictions with Multi Disease Predictor!**
+**Empower your healthcare predictions with Mediinsight-Multi Disease Predictor!**
